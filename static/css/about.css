@@ -1,0 +1,306 @@
+
+.hero {
+    background-image: linear-gradient(135deg, #2874f0, #f08f35);
+    padding: 40px 0px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+
+
+.hero h1 {
+    font-size: 42px;
+    padding: 5vh;
+    margin: 0;
+}
+
+.hero .btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #fff;
+    color: #2874f0;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.hero .btn:hover {
+    background-color: #507687; /* Medium Blue */
+}
+
+/* Our Story Section */
+.our-story {
+    padding: 50px 100px;
+    background-color: #626a75; /* Light Cream */
+    background-size: cover;
+    text-align: center;
+}
+
+.our-story h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ffffff; /* Dark Blue */
+}
+
+.our-story p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #dedede; /* Medium Blue */
+}
+
+.story-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.story-images img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.story-images img:hover {
+    transform: scale(1.05);
+}
+
+/* Mission & Values Section */
+.mission-values {
+    padding: 50px 100px;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.mission-values h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #384B70; /* Dark Blue */
+}
+
+.mission-values p {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    color: #507687; /* Medium Blue */
+}
+
+.mission-values h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #384B70; /* Dark Blue */
+}
+
+.values-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.values-list li {
+    width: 200px;
+    text-align: center;
+    background: #8cbcbc; /* Light Cream */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.values-list li:hover {
+    transform: scale(1.05);
+}
+
+.values-list img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* The Team Section */
+.the-team {
+    padding: 50px 100px;
+    background-color: #f1f1f1; /* Light Cream */
+    text-align: center;
+}
+
+.the-team h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #384B70; /* Dark Blue */
+}
+
+.team-member {
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+    width: 200px;
+}
+
+.team-member img {
+    color: #507687;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.team-member img:hover {
+    transform: scale(1.05);
+}
+
+.team-member h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #507687; /* Medium Blue */
+
+}
+.team-member p {
+    color:#507687
+}
+/* What We Do Section */
+.what-we-do {
+    padding: 50px 100px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.what-we-do h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #384B70; /* Dark Blue */
+}
+
+.what-we-do p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #507687; /* Medium Blue */
+}
+
+.services-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.services-icons img {
+    color: #384B70;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.services-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+    padding: 50px 100px;
+    background-color: #feffdb; /* Light Cream */
+    text-align: center;
+}
+
+.why-choose-us h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #384B70; /* Dark Blue */
+}
+
+.why-choose-us p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #507687; /* Medium Blue */
+}
+
+.usps {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.usps img {
+    color: #507687;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 50px 100px;
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #384B70; /* Dark Blue */
+}
+
+blockquote {
+    font-size: 18px;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    color: #507687; /* Medium Blue */
+}
+
+blockquote::before {
+    content: open-quote;
+    font-size: 50px;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    color: #ccc;
+}
+
+cite {
+    display: block;
+    margin-top: 15px;
+    font-style: normal;
+    color: #888;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #B8001F; /* Red */
+    color: #FCFAEE; /* Light Cream */
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #507687; /* Medium Blue */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .our-story, .mission-values, .the-team, .what-we-do, .why-choose-us, .testimonials {
+        padding: 30px 20px;
+    }
+
+    .values-list {
+        flex-direction: column;
+    }
+
+    .services-icons {
+        flex-direction: column;
+    }
+}

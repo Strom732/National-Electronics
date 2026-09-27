@@ -1,0 +1,183 @@
+/* General Styling */
+.space-block {
+    height: 10vh;
+}
+
+/* Hero Section */
+.hero-contact-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 25vh;
+    background-image: linear-gradient(135deg, #1f2325, #007ea7, #61dafb, #9ce7eb, #ccdbdc);
+    color: #1f2325;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    font-weight: bold;
+	color: #000;
+}
+
+/* User Details */
+
+.user_detail h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+	color: #000;
+}
+
+.profile-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    padding: 5px 0;
+}
+
+strong {
+    color: #000;
+}
+
+/* Edit Profile Link */
+.edit-profile {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.edit-profile a {
+    text-decoration: none;
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.edit-profile a:hover {
+    background: #0056b3;
+}
+
+/* Order Summary */
+
+.quotation_summary h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #000;
+}
+
+.quotation-summary table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.quotation-summary th, .Order-summary td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.quotation-summary th {
+    color: #000;
+    font-weight: bold;
+    background: #f2f2f2;
+}
+
+.quotation-summary th:last-child {
+    text-align: right;
+}
+
+.quotation-summary td {
+    color: #333;
+}
+
+.quotation-summary td:last-child {
+    text-align: right;
+}
+
+.quotation-summary p {
+    justify-content: space-between;
+
+}
+
+.quotation_container {
+    display: flex;
+    align-items: center;
+}
+
+.quotation-summary{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    min-height:40vh;
+    border-radius: 2em;
+    margin: 1em;
+    padding: 1em;
+    border: 2px solid #ddd;
+    
+}
+.user_detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    min-height: 40vh;
+    background: #e0e0e0;
+    border-radius: 2em;
+    margin: 1em;
+    padding: 1em;
+}
+.get-quota-btn {
+    display: block ;
+    text-align: center;
+    max-width: 100%;
+    background-color: #ffffff;
+    color: #fff;
+    text-decoration: none;
+    padding: 20px 20px;
+    margin: 20px 20px;
+    border-radius: 0.5em;
+    
+}
+.get-quota-btn button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .quotation_container{
+        display: inline;
+        align-items: center;
+        
+    }
+    .user_detail{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        width: auto;
+        border-radius: 2em;
+        margin: 1em;
+        padding: 1em;
+        border: 2px solid #ddd;
+    }
+    .quotation-summary{
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        width: auto;
+    }
+}

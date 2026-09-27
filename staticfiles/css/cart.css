@@ -1,0 +1,310 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #f4f4f4;
+}
+.messages {
+    position: fixed; /* Make it float on the screen */
+    top: 10px; /* Adjust position from the top */
+    right: 10px; /* Adjust position from the right */
+    z-index: 1000; /* Ensure it's above other elements */
+    pointer-events: none; /* Allow clicks to pass through */
+  }
+  
+  /* Individual message styling */
+  .message {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: #d4edda;
+    color: #155724;
+    opacity: 1; /* Fully visible initially */
+    animation: fadeOut 4.0s forwards; /* Apply animation */
+  }
+  
+  /* Keyframes for fading out */
+  @keyframes fadeOut {
+    0% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Start position */
+    }
+    100% {
+        opacity: 0; /* Fully transparent */
+        transform: translateY(-20px); /* Move up a bit */
+    }
+  }
+
+.space_block{
+    height: 10vh;
+}  
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 25vh;
+    background-image: linear-gradient(135deg, #1f2325, #007ea7, #61dafb, #9ce7eb, #ccdbdc);
+    color: #1f2325;
+    text-align: center;
+}
+
+.heading h1 {
+    font-size: 3em;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    color: #1f2325;
+}
+
+.cart_table {
+    margin: 5vh auto;
+    padding: 2em;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    max-width: 1200px;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+table th, td {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    font-weight: 500 ;
+    color: #000;
+}
+
+table th {
+    background-color: #2a4d85;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+table td {
+    background-color: #ffffff;
+    font-weight: bold;
+}
+
+table img {
+    max-width: 60px;
+    border-radius: 8px;
+    display: block;  /* Make the image block level */
+    margin: 0 auto;  /* Center the image horizontally */
+}
+
+.product-remove a,i {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.2em; /* Smaller font size */
+    transition: color 0.3s;
+    color: #ffffff;
+    display: inline-block;
+    padding: 0.05em 0.2em;
+    background-color: #2a4d85;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+
+.product-total td {
+    font-weight: bold;
+    color: #2a4d85;
+}
+
+p {
+    font-size: 1.2em;
+    margin: 20px 0;
+    text-align: center;
+    color: #333;
+}
+
+.cart_buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 50vh;
+}
+
+.continue_shoping_btn a {
+    display: grid;
+    margin: 20px auto;
+    padding: 12px 25px;
+    background-color: #2a4d85;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.continue_shoping_btn:hover {
+    transform: translateY(-2px);
+}
+
+
+.checkout_btn a {
+    display: grid;
+    margin: 20px auto;
+    padding: 12px 25px;
+    background-color: #2a4d85;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.checkout_btn:hover {
+    transform: translateY(-2px);
+}
+
+
+
+
+
+.product-quantity a {
+    font-weight: bold;
+    display: inline-block;
+    padding: 0.05em 0.2em;
+    background-color: #2a4d85;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background-color 0.3s, transform 0.2s;
+    
+}
+
+
+
+.quotation-heading{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    color: #3b44a7;
+}
+
+
+.get-quotation-btn a {
+    display: grid;
+    justify-content: center;
+    max-width:max-content;
+    margin: 20px auto;
+    padding: 12px 25px;
+    background-color: #2a4d85;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    
+}
+
+
+/* Responsive Design */
+/* Responsive Design */
+@media (max-width: 768px) {
+    .heading h1 {
+        font-size: 2em;
+    }
+
+    .cart_table {
+        padding: 0.5em;  /* Reduced padding around the table */
+    }
+
+    table {
+        width: 100%;  /* Ensure the table fits the screen */
+        font-size: 0.9em;  /* Reduce the font size for smaller screens */
+    }
+
+    table th, td {
+        padding: 8px;
+        font-size: 0.9em;  /* Reduce padding inside table cells */
+    }
+
+    table img {
+        max-width: 40px;  /* Smaller image size */
+        border-radius: 5px;
+    }
+
+    .product-remove a {
+        font-size: 1em;  /* Adjusted icon size */
+    }
+
+    .product-name,
+    .product-price,
+    .product-total,
+    .product-quantity,
+    .product-image {
+        font-size: 0.9em;  /* Smaller text size */
+    }
+
+    .product-quantity a {
+        padding: 4px 8px;  /* Smaller buttons for quantity adjustment */
+        font-size: 0.9em;  /* Smaller text size */
+    }
+
+    .remove-all {
+        font-size: 1em;  /* Adjusted font size */
+        top: 10px;
+        right: 10px;
+    }
+
+    .remove-all a {
+        text-decoration: none;
+        color: #d9534f;
+    }
+
+    .remove-all a:hover {
+        color: #c9302c;
+    }
+}
+
+@media (max-width: 480px) {
+    .heading h1 {
+        font-size: 1.5em;
+    }
+
+    .cart_table {
+        padding: 0.5em;
+    }
+
+    table th, td {
+        padding: 6px;  /* Further reduced padding for very small screens */
+    }
+
+    table img {
+        max-width: 35px;  /* Smaller image size for very small screens */
+    }
+
+    .product-remove a {
+        font-size: 0.9em;  /* Further adjusted icon size */
+    }
+
+    .product-name,
+    .product-price,
+    .product-total,
+    .product-image,
+    .product-quantity {
+        font-size: 0.8em;  /* Smaller text size */
+    }
+
+    .product-quantity a {
+        padding: 3px 6px;  /* Smaller buttons for quantity adjustment */
+        font-size: 0.8em;  /* Smaller text size */
+    }
+}

@@ -1,0 +1,93 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+    <div class="space_block">
+
+    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Our Journey</h1>
+            <p>Dedicated to innovation and excellence</p>
+            <a href="#what-we-do" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story">
+        <h2>Our Story</h2>
+        <p>Founded in [Year], [Company Name] started with a vision to [insert vision]. Over the years, we've grown from [starting point] to [current status]. We believe in [core belief] and strive to [mission].</p>
+        <div class="story-images">
+            <img src="image1.jpg" alt="Early Days">
+            <img src="image2.jpg" alt="Milestone">
+        </div>
+    </section>
+
+    <!-- Mission & Values Section -->
+    <section class="mission-values">
+        <h2>Our Mission</h2>
+        <p>To deliver [mission statement].</p>
+        <h3>Our Values</h3>
+        <ul class="values-list">
+            <li><img src="icon1.png" alt="Value 1"> Innovation</li>
+            <li><img src="icon2.png" alt="Value 2"> Customer Focus</li>
+            <li><img src="icon3.png" alt="Value 3"> Integrity</li>
+            <li><img src="icon4.png" alt="Value 4"> Excellence</li>
+        </ul>
+    </section>
+
+    <!-- The Team Section -->
+    <section class="the-team">
+        <h2>Meet the Team</h2>
+        <div class="team-member">
+            <img src="team1.jpg" alt="Team Member 1">
+            <h4>John Doe</h4>
+            <p>CEO & Founder</p>
+        </div>
+        <div class="team-member">
+            <img src="team2.jpg" alt="Team Member 2">
+            <h4>Jane Smith</h4>
+            <p>Chief Engineer</p>
+        </div>
+        <!-- Add more team members as needed -->
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="what-we-do">
+        <h2>What We Do</h2>
+        <p>We specialize in [your products/services]. From [service 1] to [service 2], we provide top-notch [products/services].</p>
+        <div class="services-icons">
+            <img src="service1.png" alt="Service 1">
+            <img src="service2.png" alt="Service 2">
+            <!-- Add more services as needed -->
+        </div>
+        <a href="services.html" class="btn">Explore Our Services</a>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <h2>Why Choose Us?</h2>
+        <p>We stand out because of our [unique selling points], providing exceptional [services/products].</p>
+        <div class="usps">
+            <img src="award.png" alt="Award">
+            <p>Award-Winning Services</p>
+            <!-- Add more USPs as needed -->
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <blockquote>
+            "Great experience working with [Company Name]! Their [services/products] exceeded our expectations."
+            <cite>– Client Name, Position</cite>
+        </blockquote>
+        <!-- Add more testimonials as needed -->
+    </section>
+
+    <!-- Footer Section -->
+    {% endblock %}

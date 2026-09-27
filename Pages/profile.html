@@ -1,0 +1,139 @@
+{% load static %}
+<style>
+    :root {
+        --primary-color: #333;
+        --secondary-color: #555;
+        --accent-color: cornflowerblue;
+        --accent-hover: darkblue;
+        --background-color: #ccdbdc;
+        --text-color: #444;
+        --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    .profile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    
+    .profile-section h1 {
+        font-size: 2rem;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .profile-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        max-width: 800px;
+        margin-bottom: 20px;
+    }
+    
+    .profile-details .profile-image {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+    .profile-details .profile-image img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+    }
+    
+    .profile-details .username {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #555;
+    }
+    
+    .profile-info {
+        width: 80%;
+        max-width: 800px;
+        background-color: var(--background-color);
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .profile-info p {
+        margin: 10px 0;
+        font-size: 1rem;
+        color: #444;
+    }
+    
+    .profile-info p strong {
+        color: #333;
+    }
+    .username p {
+        color: #333;
+    }
+    .profile-actions {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      
+      .profile-actions a {
+        text-decoration: none;
+        color: #000;
+        background-color: #61dafb;
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+      
+      .profile-actions a:hover {
+        background-color: #007ea7;
+        color: #ffff;
+      }
+      
+      @media (max-width: 600px) {
+        .profile-details {
+          flex-direction: column;
+        }
+      }
+</style>
+<div class="profile-section">
+    <h1>Profile</h1>
+    <div class="profile-details">
+        <div class="profile-image">
+            {% if user_profile.profile_image %}
+                <img src="{{ user_profile.profile_image.url }}" alt="Profile Image">
+            {% elif profile_image_url %}
+                <img src="{{ profile_image_url }}" alt="Google Profile Image">
+            {% else %}
+                <img src="{% static 'img/default-profile-pic.png' %}" alt="Default Profile Image">
+            {% endif %}
+            
+        </div>
+        <div class="username">
+            <p>{{ user_profile.user.username }}</p>
+        </div>
+    </div>
+    <div class="profile-info">
+        <p><strong>Email.:</strong> {{ user_profile.user.email }}</p>
+        <p><strong>Name.:</strong> {{ user_profile.user.first_name }} {{ user_profile.user.last_name}}</p>
+        <p><strong>Phone.:</strong> {{ user_profile.phone_number }}</p>
+        <P><strong>GST.No.:</strong> {{ user_profile.gst_no }}</P>
+        <p><strong>Address.:</strong> {{ user_profile.address }}</p>
+        <p><strong>Gender.:</strong> {{ user_profile.gender }}</p>
+    </div>
+    <div class="space-block"></div>
+    <div class="profile-actions">
+       <div class="my-orders"><a href="{% url 'my_orders' %}">My Orders</a></div>
+       <div class="settings"><a href="{% url 'profile_setup' %}">Profile Setup</a></div>
+       <div class="my-quotations" ><a href="{% url 'my_quotations' %}">My Quotations</a></div>
+     </div>
+    </div> 
+</div>
+

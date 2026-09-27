@@ -1,0 +1,18 @@
+[Unit]
+Description=National Electronics Django app (Gunicorn)
+After=network.target postgresql.service
+
+[Service]
+Type=notify
+# Adjust these two paths to match your actual server layout
+User=www-data
+WorkingDirectory=/var/www/nationalelectronics
+EnvironmentFile=/var/www/nationalelectronics/.env
+ExecStart=/var/www/nationalelectronics/venv/bin/gunicorn \
+    --workers 3 \
+    --bind 127.0.0.1:8000 \
+    shopapp.wsgi:application
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

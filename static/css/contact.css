@@ -1,0 +1,126 @@
+
+
+.space_block {
+    height: 10vh;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 25vh;
+    background-image: linear-gradient(135deg, #1f2325, #007ea7, #61dafb, #9ce7eb, #ccdbdc);
+    color: #1f2325;
+    text-align: center;
+}
+
+.heading h1 {
+    font-size: 3em;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    color: #1f2325;
+}
+.contact-info, .contact-form, .map {
+    width: 80%;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.contact-info h2 {
+    color: #1f2325;
+}
+
+.contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contact-item {
+    flex: 1 1 200px;
+    text-align: center;
+    margin: 10px;
+}
+.contact-item h3{
+    color: #1f2325;
+}
+
+.contact-item p{
+    color: #007ea7;
+}
+
+.contact-item p a{
+    color: #007ea7;
+    text-decoration: none;   
+}
+.contact-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.contact-form h2 {
+    text-align: center;
+    color: #1f2325;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 80%;
+    margin-bottom: 15px;
+}
+
+.form-group label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #1f2325;
+}
+
+.form-group input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #007ea7;
+}
+
+.btn {
+    background-color: #61dafb;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #007ea7;
+    color: #ffffff;
+}
+
+.map #map {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .space_block {
+        height: 9vh;
+    }
+}

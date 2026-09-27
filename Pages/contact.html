@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+<div class="space_block"></div>
+
+<header class="heading">
+    <h1>Contact Us</h1>
+</header>
+
+<!-- Contact Information Section -->
+<section class="contact-info">
+    <h2>Get in Touch</h2>
+    <div class="contact-details">
+        <div class="contact-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADS0lEQVR4nO2ZS0hUURjHf6ZZGJWUVqYWGbQSMlpkRYtE2oRBRAVFmGIYZLWM1tKqwih6CLWpXUXagx4LSVr0EiwhIm3Rg4qg1J5oz4lD/wuHYebOXBnvnIH5wd3M/c7c79x7vv/5vu9AlixpZR3QA4wCfcByMox84DgQibqGgVIyhOlAlxwfAVqAIuCyfrtOBjAHeCyH3wJLo+591L1GHGYa0CtHnwLzY9hs1f1PwDwcZBJwR04+AWb62Ha4vMQOyLlXQFkCW7PEBmVfj2MMybHVSdpvk70ZV4JDjMqxwgBjrmmMWWrO8FxOVQYYU6agN+M24wgdcsioUhB2aFw/jtAih84GHFekcb+BHBxgIfAX+AJMDTBuuyZi8jFn6JJTO5O0nwy8dFGGN1nrPS8J+/2yfwRMwCFylZoY55oT2M4CPsu2FgfZIOfeAQU+du2yMxmxk+QAD+TkQZ/Y+CqbJhxmCfAT+AOsimOzxyq0FuAwrVbgF8T5cldl8zDBMkx7qdsnR03JG4tCSxw6JRZOUqVS1zja4LORfpBNuyu7eywarNp9WUyL/50VL/jbcJijliTH66DUWF/vMI4yEbgtJ+/6BHad1C6iitNJioEXcvKGxCAWG63JtLkaM4uA93LyvI9K1VnL7JSrarZYm6Bx8rTPG6+xBKAzznLMlZiYpNNsvgNKXENjBfAticCutqS5J6pPVmvtU9HXRWA2IbEG+GFNJt6XqbA2zSGVxl5GEFHcmVqmSPe8jNp0NLeENZn11mTO+MSCyQCuRL114/A+JaA25RITz65DfbRQvoy3zC74qJn5YrsVNydVz/jRaMXioPpo485K66E3EySQpjWbLKVW7yyiJTmXEPIyT5rvpbj7WG91Qod9UqWU7jNeM+JNih9YYomEketQMoBuPXDUJ2seCzP0v98JMTc7Zq3tEykqvPZa+V6oNFjN8QGJwliptqR+LWmgytrBTRpyCJgS8D8qLCE5QhrJVw/gl1XXNCfZBCwGnmncLS3btGMOVu9bsdOv9my8XnO5ld70BuxJjzs5agJ6bzmixvk5HWlU6njcZM+vLbkNLYkMSp4Oh7p0ChCJc3VrYhmBCeZdwCWp24iy39aAKU2WLKSQf3jSBy3qRwNwAAAAAElFTkSuQmCC" alt="phone">
+            <h3>Phone</h3>
+            <p><a href="callto:02525 277211">02525 277211</a></p>
+        </div>
+        <div class="contact-item" onclick="">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB7UlEQVR4nO3YT6hNURTH8Y/nP+UlQoT0CgMGDKSkSCkpSSmlGChTQ6NXeiNTQwO9kjJRMjFgQErKSzJhQAyI/Mn//3/e0a316vS69/Z679x7zzntb+06nb322nuf3W+vtQ6JRCKR6BFZTZrabaSqZLXdyIDqMdBsI5+wX3XYg/etxD6K0+hTXqbhJP61EvtgrvMK+pWP/lhbFmsdbCX2/HE9xgblYR0eNpFBy1trFUbi3Rcc1Hv24WOs6cG4i6nt9TsHw7m+s5ip+0wPzY7GOi5i/mTiyHH8jv6bWKp7LMK1mPtPCHxKAXE7XoXNc2zReTbhacz5FruKiuwrcCfsfuKYznEY32Kue1hddIoyG2fG6WaW4pgRehjzfx5zO5lrHcH3GHMby02dJbiRO/GGNruSNG7Gsxj3BjtNnm14Gb5eYGu3s9/FuD6BW6UdjS//K3zcwrJepfHj7/kLmDeBcY04da6gOJUVWY8cwtfwcx9r2tiuxN2w/YGjZSus1uNR+HqH3U1sduB12DzBxrJWiAtwOfz9xakoCRqp94nQUqPvKhaWvdTtw1BON5eijdU7QwXXO1mna/a9+JDz/xkHqvrzYW2UBCPx3Amy2v5FqSpZ2kjJyNKJlIwsnUjJyGp7IlnFm9psJJFIJBK6zX+RmLvdeUFJ9AAAAABJRU5ErkJggg==" alt="Email">
+            <h3>Email</h3>
+            <p><a href="mailto:info@nationalelectronics.co">info@nationalelectronics.co</a></p>
+        </div>
+        <div class="contact-item" >
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADuElEQVR4nO2ZWYiOURjHfzRkmbHPZOJCWYZCiNwoW7JEGtkaV24VuZG9xnZBcodsxYWILJESLiQiDLIklEhqLFnGvoxPR/+3TtN8531f3znffCO/euvr/f7vc/bnOec58J9G6QBUAbuAq8BL4Luel3q3E5gLlFCAVAB7gM9AJuHzCdgN9KUAaAdsBn6ocr/U6yuB0Wpgez0VercKuCZtRqO1CWjTVI0wPXlHlakH9gO9U3zfBzhgNegyUE6eGao5byrwABiWg63hwEPZegYMJo8jETXiDNDZg80uwFmrMeX5WBN3rEYUebTdCjhnTbOga2azNZ18jERjI/NIZawhEBXyTvU5rok4RsgBfAS6hyhgj3rKeKfQHFRZ20JE7E/qqSQutgxYB9xUz5rnBrAWKE3oUH7pu2I8UqUeMsEujplAnSOivwdmJLBzXfo5eGSXjJqIHdeIKMAdUySPIvsY4LgVQCtjbK2WdofHdvwZiYwq5ppO0UgsceiWSvMO6ObQjZXuCh55JaP9HJp11kjEcSKBi+0nzQs88k1GXVvvWwlGrWFvGweQjRJpvuKRLzLqirYfpEniZaJKmqno2kVkdDTwRq2MugJUXYqGdLA8WDZ6SPMcj9yX0YEOzU1pjHeKY5y0NQ7NEGnu4pGTMjrboVkrzfEU9qodmnnSHMUjG2R0vUNTqqmSkYvNxnJp3gJdHbqNCRqbmtkyarbZLmYo2GXkYsdqzRRrOkUjYTTTY2xdlDZOl4oyFf5V3sRFpYJdti3K2wSV66Sdtnk64pkbqsiUBNpuCnY1cst12jtVx0yniFkqy4yKd6LIvZfwHEmw1v6a/pbvj5teudBRAdhsPnuFKqRGjTGuMRQLVcb5gGWwwEoOhKAIeKwyzBkoGMWWRzJna9/MtbYlJqsSlC0q7HDAqbuCPFBuLcZBHu1OsA5cJo7kha0BRsUs7qD5rMboaWVVRnmwV6lGvA6U+HNSbZ3yWuZgp7WVxF5AE9AWeKIKzM/BzhLZuOc5l/xX+a5anfrSUmq584k0IS2AS6qISXCnZZ++Ndv7Jmeors9+AiNTfDfJuktMc9MVlOiYez/hvYbJojzVN4soIFoDtxMchyO2W+eNXDxeEIZoitXHZFImKf6Y0+YACpQ16uknWbYZZUqBGs1iCpgi4IKVxjFeLcJModP671SD/wqSnlbSe2UjR+XaUFdqIZimdWDWy2Rgqn4bFz2eZka1RuCNUkDm9zKaIS2AQ1Y+q+GaaVaU6Mbpsu9LTf5VfgNttDSN+ivn8AAAAABJRU5ErkJggg==" alt="Location">
+            <h3>Location</h3>
+            <p><a href='https://maps.app.goo.gl/hi6c97pUVoxQPQGU8'>Shop no.: 3 Rooprajat Nagar Tarapur Road Near Siffa Madical</a> </p>
+        </div>
+        <div class="contact-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClElEQVR4nO1Zy6raUBRdnVw6EKTTWy34iPoBjnyAqB/gH7T9ib4+wN5+QhR8fEApdKAjX9QO7i10GB33YieirVEsVGGXE8wltSY5xsaENgs2hLDPYa/s5zkBPPwbuADwBsBXAGQiEwBXuzWuwRWH4fvyGi7CZGdUikM3o/GEa6B+Vbv0/z8CHy3EtN3y4RgC5FLhhrLALYBHwGHA84DDgOcBhwHPAw4DngccBjwPOAx4HnAYcLMH5vM51Wo1KpVKlEgkyOfzKcKe2bt6ve5OAuv1msrlMvn9/mMONPddQWAymVAymbwzrFgsUqVSodFoRMvlkmRZJkmSSBRFKhQKWgI3AC65r0mGw6EtxgeDQcUgQRCo3++brun1ehSNRlUSX3hIWLmoOkqy2SzNZjNu4kw3k8mo66/NwunCTuPD4TBNp9ODhqZSKcVQPRIaTzy3nAeBQOAPo1hYmFUbNWEHg4GuHkzyr9vtqjrfADywRKDVav1GghnfbrcNCbBSqSasEcBRQPL5vKr32BIBK2A1ne1XrVZPJiCKoqr39mwEYrGYst94PD6ZgCRJqt74bARYd2X7sTp/KgFZlrm6s6MEms0mbbfbgzqLxeL8BHhDKJ1O3xnHGt0hIpoQMifwt7oxbxJvNhtqNBraeq/0Bp0k/mlE4IcdTcysjO4TicfjlMvlSKeMsn9yuri2qxPzzD966HQ62r3eGxF4aheBUCikO0oYYW+UMG1k9wC8AnDrwmGOeEYJO/BSS0IQBGVUNgObfyKRyP5HeAYHwEbgT4cSu7I70KxWK0V0DjTc47SdeHhiWN7ynsrsxKXFKvcZwCO4BCwEXgD4zmE4S1h2gHEsbIzAKgkr2e920+VqJ+yZvXtiVG1+ASiwL/Vt0546AAAAAElFTkSuQmCC" alt="business-time">
+            <h3>Business Hours</h3>
+            <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form">
+    <h2>Send Us a Message</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <div class="form-group">
+            {{ form.name.label_tag }}
+            {{ form.name }}
+            {{ form.name.errors }}
+        </div>
+        <div class="form-group">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div>
+        <div class="form-group">
+            {{ form.subject.label_tag }}
+            {{ form.subject }}
+            {{ form.subject.errors }}
+        </div>
+        <div class="form-group">
+            {{ form.message.label_tag }}
+            {{ form.message }}
+            {{ form.message.errors }}
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+</section>
+
+
+
+
+{% endblock %}

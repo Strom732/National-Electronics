@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+<div class="space-block"></div>
+<section class="hero-contact-hero">
+    <div class="hero-content">
+        <h1>Checkout</h1>
+    </div>
+</section>
+<div class="space-block"></div>
+<div class="checkout_container">
+ <div class="user_detail">
+     <h2>Confirm your details</h2>
+     <div class="profile-info">
+      <p><strong>Email.:</strong> {{ user_profile.user.email }}</p>
+      <p><strong>Phone.:</strong> {{ user_profile.phone_number }}</p>
+      <P><strong>GST.No.:</strong> {{ user_profile.gst_no }}</P>
+      <p><strong>Address.:</strong> {{ user_profile.address }}</p>
+      <p><strong>Gender.:</strong> {{ user_profile.gender }}</p>
+     </div>
+     <div class="edit-profile">
+      <a href="{% url 'profile_setup' %}">Edit Profile</a>
+     </div>
+ </div>
+ <div class ="Order-summary">
+        <h2>Order Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in checkout_items %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>Rs {{ item.product.price }}</td>
+                    <td>Rs {%if item.amt%}{{ item.amt }}{%else%}{{ amt }}{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="total-price">
+        <!-- <p><strong>Total Amount: Rs {{ price }}</strong></p> 
+        <p><strong>+ 18% GST</strong></p> -->
+        <p><strong>Total Payable: Rs {{ total_price }}</strong></p>
+        </div> 
+ </div>
+</div>
+<div class="space-block"></div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<div class="checkout-btn">
+    <button id="rzp-button1">Proceed to Payment</button>
+</div>
+
+<script>
+    var options = {
+        "key": "{{ razorpay_key_id }}", 
+        "amount": "{{ total_price|floatformat:2|default:0 }}" * 100,  // Convert to paise
+        "currency": "INR",
+        "name": "Your Company Name",
+        "description": "Order Payment",
+        "image": "{% static 'your_logo.png' %}",
+        "order_id": "{{ razorpay_order_id }}",
+        "handler": function (response){
+            window.location.href = "/payment-success/?payment_id=" + response.razorpay_payment_id
+                + "&order_id=" + response.razorpay_order_id
+                + "&signature=" + response.razorpay_signature;
+        },
+        "prefill": {
+            "name": "{{ user_profile.user.first_name }}",
+            "email": "{{ user_profile.user.email }}",
+            "contact": "{{ user_profile.phone_number }}"
+        },
+        "theme": {
+            "color": "#3399cc"
+        }
+    };
+
+    var rzp1 = new Razorpay(options);
+    document.getElementById('rzp-button1').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+
+<div class="space-block"></div>
+</div>
+
+
+  {% endblock %}

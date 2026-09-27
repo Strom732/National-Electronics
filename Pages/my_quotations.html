@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/my_quotations.css' %}">
+
+<div class="space_block"></div>
+<div class="space_block" ></div>
+<div class="header">
+<h1>My Quotations</h1>
+</div>
+{% for quotation in quotations %}
+    <div class="quotation">
+        <h3>Quotation from {{ quotation.created_at }}</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in quotation.items.all %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.admin_price }}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td>Total:</td>
+                    <td>{{quotation.total_qty }}</td>
+                    <td>{{ quotation.admin_total }}</td>
+                </tr>
+                <tr>
+                    <td>Total Payable (incl. 18% GST):</td>
+                    <td></td>
+                    <td>{{ quotation.total_payable }}</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        {% if quotation.payment_status %}
+            <p style="color: green;">Paid</p>
+            <p class="quota-order-status"><strong style="color: rgb(24, 24, 60);">Status:</strong> {{ quotation.status }}</p>
+        {% else %}
+            <button class="pay-btn" data-id="{{ quotation.id }}" data-amount="{{ quotation.total_payable }}">
+                Pay Now
+            </button>
+        {% endif %}
+
+        <p class="download-invoice">
+            {% if quotation.invoice %}
+            <a href="{{ quotation.invoice.url }}" download>Download Invoice</a>
+            {% else %}
+            No Invoice Available
+            {% endif %}
+        </p>
+        <p>Note: Expect dilevery within 3-5 working days.</p>
+
+    </div>
+{% empty %}
+    <p>No quotations found.</p>
+{% endfor %}
+  
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    document.querySelectorAll('.pay-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            let quotationId = this.getAttribute('data-id');
+
+            fetch(`/create-payment/${quotationId}/`)
+                .then(response => response.json())
+                .then(data => {
+                    var options = {
+                        "key": "{{ razorpay_key }}",
+                        "amount": data.amount,
+                        "currency": data.currency,
+                        "name": "National Electronics",
+                        "description": "Quotation Payment",
+                        "order_id": data.order_id,
+                        "handler": function (response) {
+                            const params = new URLSearchParams({
+                                payment_id: response.razorpay_payment_id,
+                                order_id: response.razorpay_order_id,
+                                signature: response.razorpay_signature
+                            });
+                            fetch(`/payment-success/${quotationId}/?${params.toString()}`)
+                                .then(response => response.json())
+                                .then(data => {
+                                    alert(data.message || 'Something went wrong.');
+                                    location.reload();
+                                });
+                        },
+                        "theme": {
+                            "color": "#384B70"
+                        }
+                    };
+                    var rzp1 = new Razorpay(options);
+                    rzp1.open();
+                });
+        });
+    });
+</script>
+
+
+
+    <div class="space_block"></div>
+    <div class="space_block"></div>
+
+{% endblock %}

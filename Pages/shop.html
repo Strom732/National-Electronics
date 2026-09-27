@@ -1,0 +1,103 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="{% static 'css/shop.css' %}">
+
+<div class="space_block">
+
+</div>
+<div class="hero-banner">
+  <h1>Summer Sale - Up to 50% Off!</h1>
+</div>
+
+<div class="shop-container">
+  <!-- Optional Hero Banner -->
+  
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <form method="GET" action="{% url 'shop' %}">
+      <input type="text" name="query" placeholder="Search for products..." />
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <!-- Filter and Sorting Bar -->
+  <div class="filter-sort-bar">
+    <div class="filters">
+      <form method="GET" action="{% url 'shop' %}">
+        <select name="category" onchange="this.form.submit()">
+          <option value="all" {% if not selected_category or selected_category == 'all' %}selected{% endif %}>All</option>
+          {% for category in categories %}
+          <option value="{{ category.id }}" {% if selected_category == category.id|stringformat:"s" %}selected{% endif %}>{{ category.name }}</option>
+          {% endfor %}
+        </select>
+  
+        <select name="sort_by" onchange="this.form.submit()">
+          <option value="">Sort by</option>
+          <option value="popularity">Popularity</option>
+          <option value="newest">Newest</option>
+          <option value="price">Price</option>
+        </select>
+      </form>
+    </div>
+  </div>
+  
+
+  <!-- Product Grid -->
+  <div class="product-grid">
+    {% for product in products %}
+    <div class="product-card">
+      <a href="{% url 'product_detail' product.id %}">
+        <img src="{{ product.primary_image }}" 
+          alt="{{ product.name }}" 
+          onerror="this.onerror=null; this.src='{% static 'img/image_17724910.png' %}';">
+
+        <h2>{{ product.name|truncatewords:6 }}</h2>
+        <p class="price">{% if product.price > 0 %}Rs{{ product.price }}{% else %}Get Quotation{% endif %}</p>
+        <!-- <p class="card-original-price">{{product.base_price}}</p> -->
+        <!-- <p class="ratings">Rating: ★{{ product.rating|floatformat:1 }}</p> -->
+        <form action="{% url 'cart:add_to_cart' product.id %}" method="post">
+        {% csrf_token %}
+         <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+        </form>
+        
+       <div class="wishlist-icon">❤</div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="pagination">
+    <span class="page-info">Page {{ products.number }} of {{ products.paginator.num_pages }}</span>
+    
+    <!-- Previous Page Link -->
+    {% if products.has_previous %}
+      <a href="?page={{ products.previous_page_number }}{% if request.GET.query %}&query={{ request.GET.query }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.sort_by %}&sort_by={{ request.GET.sort_by }}{% endif %}">
+        « Prev
+      </a>
+    {% endif %}
+    
+    <!-- Page Numbers -->
+    {% for num in products.paginator.page_range %}
+      {% if products.number == num %}
+        <strong>{{ num }}</strong>
+      {% else %}
+        <a href="?page={{ num }}{% if request.GET.query %}&query={{ request.GET.query }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.sort_by %}&sort_by={{ request.GET.sort_by }}{% endif %}">{{ num }}</a>
+      {% endif %}
+    {% endfor %}
+    
+    <!-- Next Page Link -->
+    {% if products.has_next %}
+      <a href="?page={{ products.next_page_number }}{% if request.GET.query %}&query={{ request.GET.query }}{% endif %}{% if request.GET.category %}&category={{ request.GET.category }}{% endif %}{% if request.GET.sort_by %}&sort_by={{ request.GET.sort_by }}{% endif %}">
+        Next »
+      </a>
+    {% endif %}
+  </div>
+  
+</div>
+  
+  {% endblock %}

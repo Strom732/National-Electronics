@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    {% load static %}
+    <style>
+        /* Basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"],
+        input[type="phone"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .social-signup {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .social-signup button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .social-signup button.google {
+            background-color: #db4437;
+            color: white;
+        }
+
+        .social-signup button.facebook {
+            background-color: #3b5998;
+            color: white;
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: #333;
+            text-decoration: none;
+        }
+        .error_messages {
+            text-align: center;
+            color: #db4437;
+            
+        }
+        button{
+            height: 3em;
+            background: #343f80;
+            border: #f4f4f4;
+            border-radius: 5px;
+        }
+        button a {
+            color: #f4f4f4;
+            text-decoration: none;
+            font-weight:600;
+            font-size: larger;
+
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container">
+        <button><a href="{% url 'home' %}">Go To Home</a></button>
+        <h2>Sign Up</h2>
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="first_name" placeholder="First Name" required><br>
+            <input type="text" name="last_name" placeholder="Last Name" required><br>
+            <input type="text" name="username" placeholder="Username" required><br>
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required><br>
+            <input type="submit" value="Sign Up">
+        </form>
+        {% load socialaccount %}
+        <div class="social-signup">
+            <a href="{% provider_login_url 'google' %}?next=/profile_setup/"><button class="google" >Sign Up with Google</button></a>
+
+        </div>
+        <div class="login-link">
+            <p>Already have an account? <a href="{% url 'login' %}">Return to Login Page</a></p>
+        </div>
+        <div class="error_messages">
+            {% for message in messages %}
+            <h4>{{message}}</h4>
+            {% endfor %}
+        </div>
+    </div>
+
+    
+
+    
+</body>
+</html>

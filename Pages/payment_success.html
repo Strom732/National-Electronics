@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/payment_success.css' %}">
+<div class="space-block"></div>
+
+<div class="success-container">
+    <h2>Payment Successful! 🎉</h2>
+    <p>Your Payment ID: <strong>{{ payment_id }}</strong></p>
+    <p>Your Order ID: <strong>{{ order_id }}</strong></p>
+</div>
+<div class="return-home">
+<a href="{% url 'home' %}">Return to Home</a>
+</div>
+<div class="space-block"></div>
+{% endblock %}

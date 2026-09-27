@@ -1,0 +1,129 @@
+/* Container for vertical spacing */
+.space_block {
+    height: 40px;
+  }
+  
+  /* Main Heading */
+  .header h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #61dafb;
+    margin-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  /* Quotation Card */
+  .quotation {
+    background: linear-gradient(135deg, #007ea7, #9ce7eb);
+    border-radius: 10px;
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 800px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .quotation:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Quotation Header */
+  .quotation h3 {
+    margin-bottom: 15px;
+    color: #1f2325;
+    background-color: #ccdbdc;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  /* Table Styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ccdbdc;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  thead {
+    background-color: #61dafb;
+  }
+  
+  th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #007ea7;
+    color: #1f2325;
+  }
+  
+  tbody tr:hover {
+    background-color: rgba(156, 231, 235, 0.6);
+  }
+  
+  /* Payment Button */
+  .pay-btn {
+    background-color: #61dafb;
+    border: none;
+    border-radius: 50px;
+    color: #1f2325;
+    padding: 12px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  
+  .pay-btn:hover {
+    background-color: #9ce7eb;
+    transform: scale(1.05);
+  }
+  
+  /* Status and Invoice Link */
+  .quota-order-status {
+    font-size: 16px;
+    margin-top: 10px;
+    background-color: #ccdbdc;
+    max-width:fit-content;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  
+  .download-invoice a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .download-invoice a:hover {
+    color: #61dafb;
+    text-decoration: underline;
+  }
+  
+  /* Note styling */
+  .quotation p {
+    margin: 10px 0;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 600px) {
+    .quotation {
+      margin: 20px;
+      padding: 20px;
+    }
+    
+    th, td {
+      padding: 10px;
+    }
+    
+    h1 {
+      font-size: 2em;
+    }
+  }

@@ -1,0 +1,131 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<div class="space_block"></div>
+<div class="space_block"></div>
+
+<link rel="stylesheet" href="{% static 'css/product_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<div class="container">
+    <div class="product-detail">
+        <div class="product-image">
+ 
+                    <!-- Display Other Images -->
+                    {% for img in product.images.all %}
+                        {% if not img.is_primary %}
+                            <div class="mySlides">
+                                <img src="{{ img.image.url }}" alt="{{ product.name }}" style="width:100%">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+        
+            
+         <script src="{% static 'js/product_detail.js' %}"></script>
+        </div>
+        <div class="product-info">
+        <h1>{{ product.name }}</h1>
+          <div>
+                {% if product.quotation_product == True %} 
+                      <p>get quotation</p>
+                      <!-- <p class="gst-no">GST.No.: 
+                        {% if user_profile.gst_no %}
+                        {{ user_profile.gst_no }}
+                        {% else %}
+                        <a href="{% url 'profile_setup' %}">Add GST</a>
+                              {% endif %}
+                      </p> -->
+                      
+                      
+                      <form action="{% url 'cart:get_quotations' %}" method="GET" style="display: inline;">
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                         {% csrf_token %}
+                         <button type="submit">Get Quota</button>
+                      </form>
+                      <form action="{% url 'cart:add_to_cart' product.id %}" method="POST" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit">Add to Cart</button>
+                      </form>
+            
+                    </form>
+                {% else %}
+                      <!-- <p style="text-decoration: line-through;">Base Price: Rs {{ product.base_price }}</p>
+                      <p>Price without GST: Rs {{ product.price_nogst }}</p> -->
+                      <p>Price: Rs {{ product.price }}</p>
+                      
+                      <!-- <p class="gst-no">GST.No.: 
+                          {% if user_profile.gst_no %}
+                          {{ user_profile.gst_no }}
+                          {% else %}
+                          <a href="{% url 'profile_setup' %}">Add GST</a>
+                                {% endif %}
+                      </p> -->
+                      
+                      <form action="{% url 'cart:add_to_cart' product.id %}" method="POST" style="display: inline;">
+                           {% csrf_token %}
+                           <button type="submit">Add to Cart</button>
+                      </form>
+                      
+                      <form action="{% url 'cart:checkout' %}" method="GET" style="display: inline;">
+                          <input type="hidden" name="product_id" value="{{ product.id }}">
+                          <button type="submit">Buy Now</button>
+                      </form>
+                
+                {%endif%}            
+        
+          </div>
+         <p></p>
+         <p>{{ product.description|safe }}</p>
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="space_block"></div>
+
+</div>
+
+
+
+<div class="carousel-container" id="featured-carousel">
+    <h1>Featured Products</h1>
+    <button class="carousel-btn left"  onclick="moveCarousel('featured-carousel', -1)">&#10094;</button>
+    <div class="carousel">
+        {% for product in featured_products %}
+        <div class="card" >
+            <a href="{% url 'product_detail' product.id %}">
+              <img src="{{ product.primary_image }}" 
+                alt="{{ product.name }}" 
+                onerror="this.onerror=null; this.src='{% static 'img/image_17724910.png' %}';">
+            <div class="card-body">
+                <h3 class="card-title">{{product.name|truncatewords:4}}</h3>
+                <div class="price-container">
+                <p class="currency">Rs: </p>  
+                <p class="card-price">{{product.price}}</p>
+                <p class="card-original-price">{{product.base_price}}</p>
+                </div>
+                <form action="{% url 'cart:add_to_cart' product.id %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                </form>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-btn right" onclick="moveCarousel('featured-carousel', 1)">&#10095;</button>
+</div>
+<script src="{% static 'js/offercard.js' %}"></script>
+
+
+<div class="space_block"></div>
+
+</div>
+
+
+{% endblock %}
+

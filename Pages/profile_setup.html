@@ -1,0 +1,142 @@
+<style>
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Profile Setup Form Container */
+.profile_setup_form {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Form Heading */
+.profile_setup_form h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #384B70;
+}
+
+/* Form Fields */
+.profile_setup_form form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.profile_setup_form form input[type="text"],
+.profile_setup_form form input[type="email"],
+.profile_setup_form form input[type="password"],
+.profile_setup_form form select,
+.profile_setup_form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.profile_setup_form form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Submit Button */
+.profile_setup_form form button[type="submit"] {
+    background-color: #507687;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.profile_setup_form form button[type="submit"]:hover {
+    background-color: #384B70;
+}
+
+/* Messages */
+.alert {
+    background-color: #B8001F;
+    color: #FCFAEE;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .profile_setup_form {
+        padding: 20px;
+    }
+
+    .profile_setup_form h1 {
+        font-size: 20px;
+    }
+
+    .profile_setup_form form button[type="submit"] {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .profile_setup_form {
+        padding: 15px;
+        box-shadow: none;
+        border-radius: 8px;
+    }
+
+    .profile_setup_form h1 {
+        font-size: 18px;
+    }
+
+    .alert {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+</style>
+
+
+
+
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
+{% endif %}
+
+<div class="profile_setup_form">
+<h1>Complete Your Profile</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+</div>

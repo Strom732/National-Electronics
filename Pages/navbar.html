@@ -1,0 +1,37 @@
+{% load static %}
+ <!-- Navigation bar  -->
+
+ <nav>
+    <div class="logo">
+      <a href="{% url 'home' %}"><img src="{% static 'img/nelogo.png' %}" alt="Logo"></a>
+      <a href="{% url 'home' %}"><h1>National Electronics</h1></a>      
+    </div>
+    <div class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'shop' %}">Shop</a></li>
+        <!-- <li><a href="{% url 'services' %}">Services</a></li> -->
+        <!-- <li><a href="{% url 'about' %}">About</a></li> -->
+        <li><a href="{% url 'contact' %}">Contact Us</a></li>
+
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'dashboard' %}">Hello, {{user.first_name}}</a></li>
+        <li><a href="{% url 'logout' %}" class="logout-button">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}" class="login-button">Login</a></li>
+        {% endif %}
+
+
+        <li>
+          <a href="{% url 'cart:view_cart' %}" class="cart-btn">
+              <img src="{% static 'img/cart.png' %}" alt="Cart" class="cart-icon">
+              <span id="cart-count">{{ cart_item_count }}</span> <!-- Cart count -->
+          </a>
+      </li>   
+    </ul>
+</nav>
+<script src="{% static 'js/nav.js' %}"></script> 

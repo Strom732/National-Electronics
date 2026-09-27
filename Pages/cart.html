@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+<div class="cart-page">
+
+    <div class="space_block">
+
+    </div>
+    <header class="heading">
+    <h1>Your Shopping Cart</h1>
+    </header>
+    <div class="space_block"></div>
+    <h2 class="quotation-heading">Cart List</h2>
+    <div class="cart_table">
+    <table>
+        <thead class="cart-table-head">
+            <tr class="table-head-row">
+                <th class="product-remove"></th>
+                <th class="product-image">Image</th>
+                <th class="product-name">Name</th>
+                <th class="product-price">Amount</th>
+                <th class="product-quantity">Qty</th>
+                <th class="product-amount">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in normal_items %}
+            <tr class="table-body-row">
+                <td class="product-remove"><a href="{% url 'cart:remove_all_from_cart' item.id %}"><i class="far fa-window-close">x</i></a></td>
+                <td class="product-image"><img src="{{ item.product.primary_image}}" alt=""></td>
+                <td class="product-name">{{ item.product.name }}</td>
+                <td class="product-price">Rs {{ item.product.price }}</td>
+                <td class="product-quantity"><a href="{% url 'cart:remove_one_from_cart' item.id %}">-</a>{{ item.quantity }}<a href="{% url 'cart:add_one_to_cart' item.id %}">+</a></td>
+                <td class="product-amount">{{ item.amount }}</td>
+            </tr>
+            {% empty %}
+                <p>Your cart is empty.</p>
+            {% endfor %}
+        </tbody>    
+    </table>
+    </div> 
+    <!-- <p>Total Amount: Rs {{ tpwg }}</p>
+    <p>GST : 18%</p> -->
+    <p>Invoice: Rs{{ total_price }}</p>
+    <div class="cart_buttons">
+    <div class="continue_shoping_btn"> 
+    <a href="{% url 'home' %}">Continue Shopping</a>
+    </div>
+    <div class="checkout_btn"> 
+        <a href="{% url 'cart:checkout' %}">Checkout</a>
+    </div>
+    </div>
+
+
+
+
+    <div class="space_block"></div>
+    <h2 class="quotation-heading">Quotation List</h2>
+    <div class="cart_table">
+    <table>
+        <thead class="cart-table-head">
+            <tr class="table-head-row">
+                <th class="product-remove"></th>
+                <th class="product-image">Image</th>
+                <th class="product-name">Name</th>
+                <th class="product-quantity">Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in quotation_items %}
+            <tr class="table-body-row">
+                <td class="product-remove"><a href="{% url 'cart:remove_all_from_cart' item.id %}"><i class="far fa-window-close">x</i></a></td>
+                <td class="product-image"><img src="{{ item.product.primary_image }}" alt=""></td>
+                <td class="product-name">{{ item.product.name }}</td>
+                <td class="product-quantity"><a href="{% url 'cart:remove_one_from_cart' item.id %}">-</a>{{ item.quantity }}<a href="{% url 'cart:add_one_to_cart' item.id %}">+</a></td>
+            </tr>
+            {% empty %}
+                <p>Your cart is empty.</p>
+            {% endfor %}
+        </tbody>    
+    </table>
+    </div> 
+    <div class="get-quotation-btn"> 
+        <a href="{% url 'cart:get_quotations' %}">Get Quotation</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,188 @@
+/* Container styling */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FCFAEE; /* Background color for the content area */
+}
+
+/* Product detail section */
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    background-color: #FCFAEE; /* Match with background */
+    padding: 40px;
+    border: 2px solid #507687;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Product image */
+.product-image {
+    
+    max-height: 60vh;
+
+}
+.product-image img {
+    object-position:center;
+    max-width: 15em;
+    height: 15em;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+
+.product-info{
+    max-height: 60vh;
+    overflow: scroll;
+}
+/* Product name */
+.product-info h1 {
+    color: #384B70;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Product description */
+.product-detail p {
+    color: #507687;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Price details */
+.product-detail p:nth-of-type(3) {
+    font-size: 1.4rem;
+    color: #B8001F; /* Highlight price in red */
+    font-weight: bold;
+}
+
+
+.gst-no a{
+  text-decoration:none;
+  background-color: #4474c3;
+  color: #FCFAEE;
+  font-size: 1.2rem;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+/* Button styling */
+button {
+    background-color: #B8001F;
+    color: #FCFAEE;
+    font-size: 1.2rem;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #507687;
+}
+
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .prev {
+    left: 0;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 5em;
+  }
+  .column img{
+    width: 20dvb;
+    height: auto;
+  }
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }

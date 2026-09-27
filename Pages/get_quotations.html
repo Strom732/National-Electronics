@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/get_quotations.css' %}">
+<div class="space-block"></div>
+<section class="hero-contact-hero">
+    <div class="hero-content">
+        <h1>Get Quotation</h1>
+    </div>
+</section>
+<div class="space-block"></div>
+<div class="quotation_container">
+ <div class="user_detail">
+     <h2>Confirm your details</h2>
+     <div class="profile-info">
+      <p><strong>Email.:</strong> {{ user_profile.user.email }}</p>
+      <p><strong>Phone.:</strong> {{ user_profile.phone_number }}</p>
+      <P><strong>GST.No.:</strong> {{ user_profile.gst_no }}</P>
+      <p><strong>Address.:</strong> {{ user_profile.address }}</p>
+      <p><strong>Gender.:</strong> {{ user_profile.gender }}</p>
+     </div>
+     <div class="edit-profile">
+      <a href="{% url 'profile_setup' %}">Edit Profile</a>
+     </div>
+ </div>
+ <div class ="quotation-summary">
+        <h2>Quotation Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in quota_items %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div> 
+ </div>
+</div>
+<div class="space-block"></div>
+
+<div class="get-quota-btn">
+    <form action="{% url 'save_quotation' %}" method="POST">
+        {% csrf_token %}
+        {% if quota_items|length == 1 %}
+            <input type="hidden" name="product_id" value="{{ quota_items.0.product.id }}">
+            <input type="hidden" name="quantity" value="{{ quota_items.0.quantity }}">
+        {% endif %}
+        <button type="submit">Get Quotation</button>
+    </form>
+</div>
+
+
+
+<div class="space-block"></div>
+</div>
+
+
+  {% endblock %}

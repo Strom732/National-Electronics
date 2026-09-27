@@ -1,0 +1,26 @@
+
+ .space-block{
+    height: 13vh;
+ }
+
+
+
+.dashboard-content {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 25vh;
+   background-image: linear-gradient(135deg, #1f2325, #007ea7, #61dafb, #9ce7eb, #ccdbdc);
+   color: #1f2325;
+   text-align: center;
+}
+
+.dashboard-content h1 {
+   font-size: 3em;
+   font-weight: bold;
+   background-color: rgba(255, 255, 255, 0.1);
+   padding: 0.5em 1em;
+   border-radius: 10px;
+   color: #1f2325;
+}

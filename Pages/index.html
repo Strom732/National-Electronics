@@ -1,0 +1,255 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <div class="hero-slider">
+      <div class="slide slide1">
+        <div class="overlay"></div>
+        <div class="content">
+          <div>
+          <h1>Welcome to <br>National Electronics</h1>
+          <p>Your trusted partner for all your electronics.</p>
+          </div>
+          <a href="#" class="btn">Explore Our Services</a>
+                 
+        </div>
+      </div>
+      <div class="slide slide2">
+        <div class="overlay"></div>
+        <div class="content">
+          <div>
+          <h1>Searching for a reliable <br>Electronics components</h1>
+          <!-- <p>Explore our wide range of products and services</p> -->
+          </div>
+          <a href="#" class="btn">Explore Shop</a>
+        </div>
+      </div>
+    </div>
+  <script src="{% static 'js/script.js' %}"></script>
+
+
+
+
+  
+
+
+
+  <!-- <section class="featured-services">
+    <div class="container">
+        <h2>Our Expert Services</h2>
+        <p class="subheading">Industrial electronics repair's and maintenance services,</p>
+
+        <div class="services-grid">
+            <div class="service-card" id ="service1">
+              <div class="service-icon">
+                <h3>SUPER EXELL</h3>
+                <p>Specializing in the repair and maintenance of Super Exell electronic cards, ensuring optimal functionality and longevity.</p>
+                <a href="#" class="btn">Request Service</a>
+              </div>
+            </div>
+
+            <div class="service-card" id="service2">
+              <div class="service-icon">
+                <h3>JC5 </h3>
+                <p>Providing professional diagnostics and repair solutions for JC5 electronic control systems, ensuring smooth and reliable performance.</p>
+                <a href="#" class="btn">Request Service</a>
+              </div>
+            </div>
+
+            <div class="service-card" id="service3">
+              <div class="service-icon">
+                <h3>SOMET ALFA</h3>
+                <p>Expert repair and maintenance services for Somet Alfa electronic cards, restoring efficiency and preventing operational disruptions.</p>
+                <a href="#" class="btn">Request Service</a>
+              </div>
+            </div>
+        </div>
+        <br>
+        <p class="subheading">We deal with all types of Industrial electronics components and repair services. Contact us today to learn more about our services.</p>
+    </div>
+</section> -->
+
+
+
+
+
+
+
+<section class="product-categories">
+    <div class="container">
+        <h2>Shop by Category</h2>
+        <p class="subheading">Find the components you need from our wide selection.</p>
+        
+        <div class="categories-grid">
+          {% for category in categories %}
+             <a href="{% url 'shop' %}?category={{ category.id }}" class="category-item">
+               <img src="{{ category.image_url }}" alt="{{ category.name }}" class="category-icon">
+               <h3>{{ category.name }}</h3>
+             </a>
+          
+          {% endfor %}
+        </div>
+    </div>
+  </section>
+  
+
+  
+  
+  <!--offer carousel-->
+  <div class="carousel-container" id="featured-carousel">
+    <h1>Featured Products</h1>
+    <button class="carousel-btn left"  onclick="moveCarousel('featured-carousel', -1)">&#10094;</button>
+    <div class="carousel">
+        {% for product in featured_products %}
+        <div class="card" >
+            <a href="{% url 'product_detail' product.id %}">
+              <img src="{{ product.primary_image }}" 
+                alt="{{ product.name }}" 
+                onerror="this.onerror=null; this.src='{% static 'img/image_17724910.png' %}';">
+            <div class="card-body">
+                <h3 class="card-title">{{product.name|truncatewords:4}}</h3>
+                <div class="price-container">
+                <p class="currency">Rs: </p>  
+                <p class="card-price">{{product.price}}</p>
+                <!-- <p class="card-original-price">{{product.base_price}}</p> -->
+                </div>
+                <form action="{% url 'cart:add_to_cart' product.id %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                </form>
+            </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-btn right" onclick="moveCarousel('featured-carousel', 1)">&#10095;</button>
+</div>
+<script src="{% static 'js/offercard.js' %}"></script>
+
+
+<div class="space-block"></div>
+
+
+
+<!-- <div class="carousel-container" id="SMD-IC-carousel">
+  <h1>SMD IC's</h1>
+  <button class="carousel-btn left" onclick="moveCarousel('SMD-IC-carousel', -1)">&#10094;</button>
+  <div class="carousel">
+    {% for product in Products %}
+      {% if product.category.name == "SMD IC" %}
+        <div class="card">
+        <a href="{% url 'product_detail' product.id %}">
+          <img src="{{ product.primary_image }}" 
+             alt="{{ product.name }}" 
+             onerror="this.onerror=null; this.src='{% static 'img/image_17724910.png' %}';">
+            <div class="card-body">
+                <h3 class="card-title">{{ product.name|truncatewords:4 }}</h3>
+                <div class="price-container">
+                    <p class="currency">Ask for Quatation</p>  
+                    <p class="card-price"></p>
+                </div>
+                <form action="{% url 'cart:add_to_cart' product.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                </form>
+            </div>
+        </a>
+        </div>
+     {% endif %}
+{% endfor %}
+  </div>
+  <button class="carousel-btn right" onclick="moveCarousel('SMD-IC-carousel', 1)">&#10095;</button>
+</div>
+<script src="{% static 'js/offercard.js' %}"></script> -->
+
+
+
+
+
+<section class="special-offers">
+  <div class="container">
+    <h2>Special Offers</h2>
+    <p class="subheading">Don’t miss out on these limited-time offers!</p>
+
+    <div class="offers-grid">
+      {% for offer in offers %}
+        <div class="offer-card">
+          <div class="offer-image">
+            <img src="{{ offer.image.url }}" alt="{{ offer.title }}">
+          </div>
+          <div class="offer-details">
+            <h3>{{ offer.title }}</h3>
+            <p>{{ offer.description }}</p>
+            <a href="{{ offer.link }}" class="btn">Shop Now</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<section class="why-choose-us">
+  <div class="container">
+      <h2>Why Choose Us?</h2>
+      <p class="subheading">Discover the benefits of working with us.</p>
+      
+      <div class="benefits-grid">
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="{% static 'img/quality.webp' %}" alt="Quality Assurance">
+              </div>
+              <h3>Quality Assurance</h3>
+              <p>We guarantee high-quality components and reliable repair services.</p>
+          </div>
+
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="{% static 'img/time-twenty-four.webp' %}" alt="24/7 Support">
+              </div>
+              <h3>24/7 Support</h3>
+              <p>Our support team is available around the clock to assist you.</p>
+          </div>
+
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="{% static 'img/user-trust.webp' %}" alt="Customer Trust">
+              </div>
+              <h3>Expertise</h3>
+              <p>Our technicians are highly skilled and experienced in their field.</p>
+          </div>
+
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="{% static 'img/head-vr.webp' %}" alt="Advanced Technology">
+              </div>
+              <h3>Advanced Technology</h3>
+              <p>We use the latest technology to ensure optimal performance.</p>
+          </div>
+
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="{% static 'img/feedback-review.webp' %}" alt="Customer Satisfaction">
+              </div>
+              <h3>Customer Satisfaction</h3>
+              <p>Your satisfaction is our top priority, and we strive to exceed expectations.</p>
+          </div>
+
+          <div class="benefit-item">
+              <div class="benefit-icon">
+                  <img src="{% static 'img/puzzle-piece-integration.webp' %}" alt="Flexible Solutions">
+              </div>
+              <h3>Flexible Solutions</h3>
+              <p>We offer customizable solutions to meet your specific needs.</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+{% endblock %}
